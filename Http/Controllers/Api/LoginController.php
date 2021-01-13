@@ -2,7 +2,7 @@
 
 namespace Modules\Auth\Http\Controllers\Api;
 
-use Modules\AdminUser\Entities\AdminUser;
+use Modules\AdminUser\Services\AdminUserService;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -19,20 +19,24 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $adminUserService;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AdminUserService $adminUserService)
     {
         $this->middleware('guest')->except('logout');
+        $this->adminUserService = $adminUserService;
     }
 
     public function login(Request $request)
     {
         $allowed = false;
-        $user = AdminUser::where('email', $request->email)->first();
+
+        $user = $this->adminUserService->getByKeyValue('email', $request->email);
 
         if ($user) {
             if (\Hash::check($request->password, $user->password)) {
@@ -46,11 +50,11 @@ class LoginController extends Controller
             }
 
         } else {
-            return response()->error('Email is incorrect');
+            return response()->json('Email is incorrect', 500);
         }
 
         if ($allowed) {
-            $success['token'] = $user->createToken('SwellAPIPassport')->accessToken;
+            $success['token'] = $user->createToken('APIPassport')->accessToken;
 
             return response()->json([
                 'status' => 'success',

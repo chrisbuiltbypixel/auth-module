@@ -1,10 +1,11 @@
 {
-    "name": "nwidart/auth",
+    "name": "builtbypixel/auth-module",
     "description": "",
+    "type": "laravel-module",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Chris Mills",
+            "email": "chris@builtbypixel.com"
         }
     ],
     "extra": {
