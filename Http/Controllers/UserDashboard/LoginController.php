@@ -4,7 +4,6 @@ namespace Modules\Auth\Http\Controllers\UserDashboard;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Controllers\Controller;
 
@@ -20,7 +19,7 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
      */
-    use AuthenticatesUsers;
+
     /**
      * Where to redirect users after login.
      *

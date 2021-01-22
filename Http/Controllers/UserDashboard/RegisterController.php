@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Services\UserService;
 use App\Services\EmailVerificationService;
 use App\Services\AddressService;
@@ -27,8 +26,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
      */
-
-    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.

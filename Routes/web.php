@@ -13,16 +13,16 @@
 
 Route::group(['prefix' => 'auth'], function () {
     // Authentication Routes...
-    Route::post('login', 'Auth\UserDashboard\LoginController@login');
-    Route::post('logout', 'Auth\UserDashboard\LoginController@logout');
+    Route::post('login', 'UserDashboard\LoginController@login');
+    Route::post('logout', 'UserDashboard\LoginController@logout');
 
-    // Password Reset Routes...
-    Route::post('password/reset', 'Auth\UserDashboard\ResetPasswordController@reset');
-    Route::get('password/reset/{token}', 'Auth\UserDashboard\ResetPasswordController@showResetForm');
+    // // Password Reset Routes...
+    // Route::post('password/reset', 'UserDashboard\ResetPasswordController@reset');
+    // Route::get('password/reset/{token}', 'UserDashboard\ResetPasswordController@showResetForm');
 
-    // Registration Routes...
-    Route::post('register/{token?}', 'Auth\UserDashboard\RegisterController@store');
+    // // Registration Routes...
+    // Route::post('register/{token?}', 'UserDashboard\RegisterController@store');
 
-    // Email Verification...
-    Route::get('email-verification/{token}', 'Auth\UserDashboard\VerificationController@verifyEmailAddress');
+    // // Email Verification...
+    // Route::get('email-verification/{token}', 'UserDashboard\VerificationController@verifyEmailAddress');
 });

@@ -13,12 +13,12 @@
 
 Route::group(['prefix' => 'auth'], function () {
     // Authentication Routes...
-    Route::post('login', '\Modules\Auth\Http\Controllers\Api\LoginController@login');
-    Route::post('logout', '\Modules\Auth\Http\Controllers\Api\LoginController@logout');
+    Route::post('login', 'Api\LoginController@login');
+    Route::post('logout', 'Api\LoginController@logout');
 
     // Password Reset Routes...
-    Route::post('password/email', 'Modules\Auth\Http\Controllers\Api\ForgotPasswordController@sendResetLinkEmail');
-    Route::get('password/reset', 'Modules\Auth\Http\Controllers\Api\ForgotPasswordController@showLinkRequestForm');
-    Route::post('password/reset', 'Modules\Auth\Http\Controllers\Api\ResetPasswordController@reset');
-    Route::get('password/reset/{token}', 'Modules\Auth\Http\Controllers\Api\ResetPasswordController@showResetForm');
+    // Route::post('password/email', 'Api\ForgotPasswordController@sendResetLinkEmail');
+    // Route::get('password/reset', 'Api\ForgotPasswordController@showLinkRequestForm');
+    // Route::post('password/reset', 'Api\ResetPasswordController@reset');
+    // Route::get('password/reset/{token}', 'Api\ResetPasswordController@showResetForm');
 });
